@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="registration_form" model="ir.ui.view">
+        <field name="name">registration.form</field>
+        <field name="model">event.registration</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_confirm" string="Confirm" type="object" class="btn btn-primary"/>
+                    <button name="action_cancel" string="Cancel" type="object" class="btn btn-danger"/>
+
+                    <field name="state" widget="statusbar"/>
+
+                </header>
+                <sheet>
+                    <group>
+                        <field name="attendee_id"/>
+                        <field name="event_id"/>
+                        <field name="registraion_date"/>
+                        <field name="state"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="registration_tree" model="ir.ui.view">
+        <field name="name">registration.tree</field>
+        <field name="model">event.registration</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="attendee_id"/>
+                <field name="event_id"/>
+                <field name="registraion_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_registration" model="ir.actions.act_window">
+        <field name="name">Event Registration</field>
+        <field name="res_model">event.registration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
+

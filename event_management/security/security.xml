@@ -1,0 +1,48 @@
+<odoo>
+    <record id="odoo_event" model="ir.module.category">
+        <field name="name">Event Managemnet System</field>
+        <field name="description">Category For Evenr </field>
+        <field name="sequence">20</field>
+    </record>
+    
+    <record id="product_event_access" model="res.groups">
+        <field name="name"> Event Manager </field>
+        <field name="category_id" ref="event_management.odoo_event"/>
+    </record>
+
+    <record id="event_access" model="res.groups">
+        <field name="name"> Organizer  </field>
+        <field name="category_id" ref="event_management.odoo_event"/>
+        <field name="implied_ids" eval="[(4, ref('product_event_access'))]"/>
+    </record>
+
+      <record id="event_attendee" model="res.groups">
+        <field name="name"> Attendee  </field>
+        <field name="category_id" ref="event_management.odoo_event"/>
+        <field name="implied_ids" eval="[(4, ref('product_event_access'))]"/>
+    </record>
+
+    <record id="event_manager_rule" model="ir.rule">
+        <field name="name">Event Manager Access Rule </field>
+        <field name="model_id" ref="event_management.model_event_event"/>
+        <field name="domain_force">[('name', '=', user.id)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="groups" eval="[(4, ref('product_event_access'))]"/>
+
+    </record>
+
+       <!-- <record id="event_organizer_rule" model="ir.rule">
+        <field name="name">Event Organizer Access Rule </field>
+        <field name="model_id" ref="event_management.model_event_event"/>
+        <field name="domain_force">[('1', '=', user.id)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="groups" eval="[(4, ref('event_access'))]"/>
+    </record> -->
+
+</odoo>

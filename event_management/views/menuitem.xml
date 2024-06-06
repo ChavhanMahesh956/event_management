@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding ='utf-8' ?>
+<odoo>
+    <menuitem name="Event Management" id="menu_root_event_ads">
+        <menuitem id="menu_event_ads" name="Event Menu">
+            <menuitem id="menu_event" name="Event" action="event_management.action_event"/>
+        </menuitem>
+
+        <menuitem id="menu_organizer_ads" name="Organizer Menu">
+            <menuitem id="menu_organizer" name="Organizer" action="event_management.action_organizer"/>
+        </menuitem>
+
+        <menuitem id="menu_attendee_ads" name="Attendee Menu">
+            <menuitem id="menu_attendee" name="Attendee" action="event_management.action_attendee"/>
+        </menuitem>
+
+        <menuitem id="menu_registration_ads" name="Registration Menu">
+            <menuitem id="menu_registration" name="Registration" action="event_management.action_registration"/>
+        </menuitem>
+
+        <menuitem id="menu_excel_report" name=" Event Management Report">
+            <menuitem id="menu_registration" name="Registration report" action="event_management.action_report_excel"/>
+        </menuitem>
+    </menuitem>
+</odoo>
+
